@@ -1,0 +1,13 @@
+# Use this code so you can refresh your sub-pages and not get 404 errors.
+# This .htaccess file should end up in your build folder.
+# If this will be in a subdirectory on the server, update the folder name on lines 7 and 12.
+# If this will be in the root folder on the server, remove the folder name.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /wp-react/
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /wp-react/index.html [L]
+</IfModule>
